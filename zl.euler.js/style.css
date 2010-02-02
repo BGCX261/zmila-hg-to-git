@@ -1,0 +1,91 @@
+h3, h2
+{
+	cursor: pointer;
+}
+
+/* group of slide and header */
+.group
+{
+	margin: 1em;
+}
+
+/* slides header presentation: borders, margin, padding */
+.slide_header
+{
+	border: 1px dotted green;
+	border-bottom: none;
+	padding: .5em;
+	margin: .5em 0 0 0;
+}
+
+/* slides presentation: borders, margin, padding */
+.slide
+{
+	border: 1px dotted green;
+	padding: .5em;
+	margin: 0;
+}
+
+/* initial slides state is collapsed */
+.slide
+{
+	display: none;
+}
+
+/* left border, padding and padding for quotes */
+blockquote
+{
+	border-left: 3px solid blue;
+	background: #ccffff; 
+	padding-left: .5em;
+	width: 60%;
+}
+
+/* background for code background: #ccffff; */
+code
+{
+	color: blue;
+	padding: 0 3px;
+}
+
+pre
+{
+	display: inline-block;
+	font-weight: bold;
+	background: #ccffff; 
+	padding: 0 1em;
+}
+
+/* styles used for examples */
+
+div.example 
+{
+	width: 24em;
+	padding: 0.2em 0.5em;
+}
+
+div.example div 
+{
+	margin: 0.2em 0.5em;
+	padding: 0.2em 0.5em;
+}
+
+.first
+{
+	background: lightseagreen;
+}
+
+.second
+{
+	background: seagreen;
+}
+
+.third
+{
+	background: darkseagreen;
+}
+
+.test
+{
+	background: darkseagreen;
+}

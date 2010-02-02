@@ -1,0 +1,62 @@
+
+// 8319823/8313928 (approx. 1.0007090511248113)
+ 
+
+digits[n] := 
+{
+	d = new array
+	for i = 0 to 9 
+		d@i = 0
+	
+	while ( n > 0 )
+	{
+		r = n mod 10
+		n = n div 10
+		d@r = d@r + 1
+	}
+	return d	
+}
+
+arePerm[a,b] := 
+{
+	da = digits[a]
+	db = digits[b]
+	//println[ a + ": " + da + "   -  " + b + ": " + db ]
+	for i = 0 to 9
+		if ( da@i != db@i )
+			return false
+	return true
+}
+
+problem70[] := 
+{
+	//minI = 0
+	//minR = 10000
+	  
+	minI = 8319823
+	minFI = 8313928 
+	minR = 8319823/8313928
+	for i = 8000000 to 7000000 step -1
+	{
+		fi = eulerPhi[i]
+		r = i / fi
+		if ( r < minR )
+		{
+			if (arePerm[ i, fi ])
+			{
+				minR = r
+				minI = i
+				minFI = fi
+				println[ "new min: " + minI + " " + minFI + " " + minR ]
+			}
+		} 
+	}
+	println["finally: " + minI + " " + minFI + " " + minR ]
+}
+
+
+
+start = now[]
+problem70[]
+println[ now[] - start ]
+
