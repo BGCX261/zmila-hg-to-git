@@ -2,18 +2,14 @@
 now: 78 out of 277	(22 more until next level)
 level: 2
 
-385
+365
 http://projecteuler.net/index.php?section=scores&level=2&page=4
 
-11th in Clojure   // next 81
+8th in Clojure   // next 81
 17th in Belarus   // next 100 - 109
 9th in ECMAScript // next 86
 */
 
-/*
-Problem 179
-Find the number of integers 1 < n < 10^(7), for which n and n + 1 have the same number of positive divisors. For example, 14 has the positive divisors 1, 2, 7, 14 while 15 has 1, 3, 5, 15.
-*/
 
 /*
 Problem 62
