@@ -4,11 +4,25 @@ function problem( )
 	
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
+
+/*
+Find the smallest cube for which exactly five permutations of its digits are cube.
+*/
+function problem62()
+{
+	return 127035954683;	// 5027^3
+	// ([5027 127035954683] [7061 352045367981] [7202 373559126408] [8288 569310543872] [8384 589323567104])
+}
+
+
 /* Find the sum of all 0 to 9 pandigital numbers with this property. */
 function problem043()
 {
 	return 16695334890;	// (4106357289 4130952867 4160357289 1406357289 1430952867 1460357289)
 }
+
 
 
 /*

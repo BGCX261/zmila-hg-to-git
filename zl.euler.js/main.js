@@ -1,8 +1,8 @@
 /*
-now: 78 out of 277	(22 more until next level)
+now: 81 out of 277	(19 more until next level)
 level: 2
 
-365
+324
 http://projecteuler.net/index.php?section=scores&level=2&page=4
 
 8th in Clojure   // next 81
@@ -12,15 +12,9 @@ http://projecteuler.net/index.php?section=scores&level=2&page=4
 
 
 /*
-Problem 62
-The cube, 41063625 (345^(3)), can be permuted to produce two other cubes: 56623104 (384^(3)) and 66430125 (405^(3)). 
-In fact, 41063625 is the smallest cube which has exactly three permutations of its digits which are also cube.
-Find the smallest cube for which exactly five permutations of its digits are cube.
-*/
-
-/*
 Problem 187
-A composite is a number containing at least two prime factors. For example, 15 = 3 ? 5; 9 = 3 ? 3; 12 = 2 ? 2 ? 3.
+A composite is a number containing at least two prime factors. 
+For example, 15 = 3 ? 5; 9 = 3 ? 3; 12 = 2 ? 2 ? 3.
 There are ten composites below thirty containing precisely two, not necessarily distinct, 
 prime factors: 4, 6, 9, 10, 14, 15, 21, 22, 25, 26.
 How many composite integers, n < 10^(8), have precisely two, not necessarily distinct, prime factors?
