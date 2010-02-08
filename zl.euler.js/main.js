@@ -13,28 +13,16 @@ http://projecteuler.net/index.php?section=scores&level=2&page=4
 
 /*
 Problem 62
-The cube, 41063625 (345^(3)), can be permuted to produce two other cubes: 56623104 (384^(3)) and 66430125 (405^(3)). In fact, 41063625 is the smallest cube which has exactly three permutations of its digits which are also cube.
+The cube, 41063625 (345^(3)), can be permuted to produce two other cubes: 56623104 (384^(3)) and 66430125 (405^(3)). 
+In fact, 41063625 is the smallest cube which has exactly three permutations of its digits which are also cube.
 Find the smallest cube for which exactly five permutations of its digits are cube.
-*/
-
-/*
-Problem 43
-The number, 1406357289, is a 0 to 9 pandigital number because it is made up of each of the digits 0 to 9 in some order, but it also has a rather interesting sub-string divisibility property.
-Let d_(1) be the 1^(st) digit, d_(2) be the 2^(nd) digit, and so on. In this way, we note the following:
-    * d_(2)d_(3)d_(4)=406 is divisible by 2
-    * d_(3)d_(4)d_(5)=063 is divisible by 3
-    * d_(4)d_(5)d_(6)=635 is divisible by 5
-    * d_(5)d_(6)d_(7)=357 is divisible by 7
-    * d_(6)d_(7)d_(8)=572 is divisible by 11
-    * d_(7)d_(8)d_(9)=728 is divisible by 13
-    * d_(8)d_(9)d_(10)=289 is divisible by 17
-Find the sum of all 0 to 9 pandigital numbers with this property.
 */
 
 /*
 Problem 187
 A composite is a number containing at least two prime factors. For example, 15 = 3 ? 5; 9 = 3 ? 3; 12 = 2 ? 2 ? 3.
-There are ten composites below thirty containing precisely two, not necessarily distinct, prime factors: 4, 6, 9, 10, 14, 15, 21, 22, 25, 26.
+There are ten composites below thirty containing precisely two, not necessarily distinct, 
+prime factors: 4, 6, 9, 10, 14, 15, 21, 22, 25, 26.
 How many composite integers, n < 10^(8), have precisely two, not necessarily distinct, prime factors?
 */
 
@@ -63,7 +51,8 @@ factorials:
 ----------------------
 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
 If d(a) = b and d(b) = a, where a ? b, then a and b are an amicable pair and each of a and b are called amicable numbers.
-For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
+For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. 
+The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
 Evaluate the sum of all the amicable numbers under 10000.
 */
 

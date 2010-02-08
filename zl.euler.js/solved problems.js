@@ -4,6 +4,13 @@ function problem( )
 	
 }
 
+/* Find the sum of all 0 to 9 pandigital numbers with this property. */
+function problem043()
+{
+	return 16695334890;	// (4106357289 4130952867 4160357289 1406357289 1430952867 1460357289)
+}
+
+
 /*
 Find the number of integers 1 < n < 10^(7), for which n and n + 1 have the same number of positive divisors. 
 For example, 14 has the positive divisors 1, 2, 7, 14 while 15 has 1, 3, 5, 15.
@@ -211,65 +218,6 @@ log( "final: " + maxA + " " + maxB + " " + maxLen )
   return [ maxA, maxB, maxA*maxB ];
 }
 
-
-function problem27()
-{
-
-var res = Sieve_of_Eratosthenes();
-
-var primes = res[0]
-var arrPrimes = res[1];
-
-var indPrimeGT1000 = -1; 
-for ( var i = 0; i < arrPrimes.length; i++ )
-  if ( arrPrimes[i] > 1000 )
-    { indPrimeGT1000 = i; break; }
-
-function isPrime( n ) { return !!primes[n] }
-
-var maxLen = 0, maxA, maxB, n;
-
-// uses maxLen = 0, maxA, maxB
-function getLen(A, B)
-{
-  var n = 0;
-  while ( true )
-  {
-    var prime = n*n + A*n + B;
-    n++;
-    if ( prime <= 0 || !isPrime(prime) )
-      break;
-  }
-
-  if ( n > maxLen )
-  {
-    maxA = A; 
-    maxB = B; 
-    maxLen = n; 
-    //log( "current: " + maxA + " " + maxB + " " + maxLen ); 
-    return true;
-  }
-
-  return false;
-}
-
-for ( var a = 0; a < indPrimeGT1000; a++ )
-{
-  var A = arrPrimes[a];
-  for ( var b = 0; b < indPrimeGT1000; b++ )
-  {
-    var B = arrPrimes[b];
-    //getLen(A, B)
-    getLen(-A, B)
-    getLen(A, -B)
-    //getLen(-A, -B)
-  }
-}
-
-log( "final: " + maxA + " " + maxB + " " + maxLen )
-
-  return [ maxA, maxB, maxA*maxB ];
-}
 
 /*
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
