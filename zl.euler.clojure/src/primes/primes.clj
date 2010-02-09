@@ -1,5 +1,9 @@
 (ns src.primes.primes)
 
+(quote
+	"Everybody loves the Sieve of Eratosthenes" 
+	"http://clj-me.cgrand.net/2009/07/30/everybody-loves-the-sieve-of-eratosthenes/")
+
 (defn primes [max]
 	(let [enqueue (fn [sieve n factor] 
 						(let [m (+ n factor factor)]
