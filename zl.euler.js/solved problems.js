@@ -6,6 +6,14 @@ function problem( )
 
 ////////////////////////////////////////////////////////////////////////////////
 
+/*
+What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?"
+*/
+function problem46()
+{
+	return 5777;
+}
+
 
 /*
 Find the smallest cube for which exactly five permutations of its digits are cube.

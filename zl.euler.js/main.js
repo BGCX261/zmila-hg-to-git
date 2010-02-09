@@ -1,11 +1,11 @@
 /*
-now: 81 out of 277	(19 more until next level)
+now: 82 out of 277	(18 more until next level)
 level: 2
 
-324
+302
 http://projecteuler.net/index.php?section=scores&level=2&page=4
 
-8th in Clojure   // next 81
+7th in Clojure   // next 83 102
 17th in Belarus   // next 100 - 109
 9th in ECMAScript // next 86
 */
@@ -41,13 +41,7 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 
 factorials:
 0=0 1=1 2=2 3=6 4=24 5=120 6=720 7=5040 8=40320 9=362880
-
 ----------------------
-Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
-If d(a) = b and d(b) = a, where a ? b, then a and b are an amicable pair and each of a and b are called amicable numbers.
-For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. 
-The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
-Evaluate the sum of all the amicable numbers under 10000.
 */
 
 function problem75_not_done()
