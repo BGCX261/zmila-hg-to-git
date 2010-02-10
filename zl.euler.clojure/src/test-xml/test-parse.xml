@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aaa bbb="ccc" ccc="bbb">
+	ddd1
+	<eee id="1">e1</eee>
+	<eee id="2">e2</eee>
+	<eee id="3" />
+	<fff />
+	<ggg>
+		<ggg>ggg</ggg>
+	</ggg>
+</aaa>
+

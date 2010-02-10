@@ -6,6 +6,12 @@ function problem( )
 
 ////////////////////////////////////////////////////////////////////////////////
 
+function problem058()
+{
+	return 26241;	// 5248/52481 = 9.999809454850327
+}
+
+
 /*
 What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?"
 */

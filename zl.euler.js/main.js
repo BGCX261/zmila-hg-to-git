@@ -1,9 +1,9 @@
 /*
-now: 82 out of 277	(18 more until next level)
+now: 83 out of 277	(17 more until next level)
 level: 2
 
-302
-http://projecteuler.net/index.php?section=scores&level=2&page=4
+276
+http://projecteuler.net/index.php?section=scores&level=2&page=3
 
 7th in Clojure   // next 83 102
 17th in Belarus   // next 100 - 109
