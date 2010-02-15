@@ -1,0 +1,126 @@
+//allAbundant = 6965
+//sumOfAllNotSumOfTwoAbundant = 4179871
+//their count = 1456
+
+problem23[] :=
+{
+	calcSumOfDivisors[factors, pos, divisor, divisors] :=
+	{
+		if pos < 0 
+		{
+			//divisors.push[divisor]
+			divisors@0 = divisors@0 + divisor
+			//println[ " end: currDiv=$divisor divisors=$divisors" ]
+			return 
+		}
+
+		factor = factors@pos
+		for i = 0 to factor@1
+		{
+			prod = factor@0 ^ i
+			calcSumOfDivisors[ factors, 
+				pos-1, divisor * prod, divisors ]
+		}
+		return 
+	}
+
+	sumOfDivisors[n] :=
+	{
+		factors = factor[n]
+		divisors = [-n]
+		calcSumOfDivisors[factors, length[factors]-1, 1, divisors]
+
+		return divisors@0
+	}
+
+	isAbundant[n] := sumOfDivisors[n] > n 
+
+	collectAllAbundant[limit] :=
+	{
+		allAbundant = new array
+		for i = 2 to limit 
+		{
+			if isAbundant[i]
+			{
+				allAbundant.push[ i ]
+			}
+		}
+		return allAbundant
+	}
+
+	start = now[]
+	allAbundant = collectAllAbundant[ 2812 ]	//3
+	end = now[]
+	println[ " " ]
+	println[ length[allAbundant] ]
+	println[ end - start ]
+
+
+	collectSumsOf2Abundant[limit, abundants] :=
+	{
+		allSumsOf2Abundant = array[limit]
+		len = length[abundants] - 1
+		for a = 0 to len
+		{
+			A = abundants@a
+			for b = a to len
+			{
+				B = abundants@b
+				sumOfTwoAbundant = A + B
+				if sumOfTwoAbundant > limit
+					break
+				allSumsOf2Abundant@sumOfTwoAbundant = 0
+			}
+		}
+		res = []
+		sum = 0
+		for i = 0 to length[allSumsOf2Abundant]
+		{
+			if allSumsOf2Abundant@i != 0
+			{
+				res.push[i]
+				sum = sum + i
+			}
+		}
+		
+		return [sum, res]
+	}
+
+println[ collectSumsOf2Abundant[2812, allAbundant] ]
+
+
+}
+
+	getAllDivisors[factors, pos, divisor, divisors] :=
+	{
+		if pos < 0 
+		{
+			divisors.push[divisor]
+			return 
+		}
+
+		factor = factors@pos
+		for i = 0 to factor@1
+		{
+			prod = factor@0 ^ i
+			getAllDivisors[ factors, 
+				pos-1, divisor * prod, divisors ]
+		}
+	}
+	allDivisors[n] :=
+	{
+		var factors = factor[n]
+		var divs = new array
+		getAllDivisors[factors, length[factors]-1, 1, divs]
+		divs.pop[]
+
+		return divs
+	}
+
+for i = 10 to 100 step 10
+{
+	allD = sort[allDivisors[i]]
+	sum = sum[allD]
+	println["$i: $allD $sum"]
+
+}

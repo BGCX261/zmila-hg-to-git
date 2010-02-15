@@ -1,0 +1,85 @@
+problem102[] :=
+{
+	setEngineering[true]
+	pr[ x, y ] := 
+	{
+		at = atan[y/x]  // -> radian / degree
+		if x < 0 
+		  at = pi + at
+		angle = at -> degree
+		println[ "$x, $y: angle = $angle" ]
+	}
+
+angle[dx,dy] :=
+{
+	if dx == 0
+	{
+		at = dy < 0 ? -pi/2 : pi/2
+		//angle = at -> degree
+		//println[ "$dx, $dy: angle = $angle" ]
+		return at
+	}
+	at = atan[dy/dx]
+	if dx < 0 
+		at = 180 degree + at
+	//angle = at -> degree
+	//println[ "$dx, $dy: angle = $angle" ]
+	return at
+}
+
+angle2[x1,y1, x2,y2] :=
+{
+	dx = x2-x1
+	dy = y2-y1
+	return angle[dx,dy]
+}
+
+sameSide[ x1,y1, x2,y2, x3,y3 ] := 
+{
+	angle10 = angle2[x1,y1, 0,0]
+	angle12 = angle2[x1,y1, x2,y2]
+	angle13 = angle2[x1,y1, x3,y3]
+
+	if angle10 < angle12 
+		return angle10 < angle13
+	if angle10 > angle12
+		return angle10 > angle13
+
+	println[ " origin on line  $x1,$y1 - $x2,$y2" ]
+}
+
+originInsideTriangle[ x1,y1, x2,y2, x3,y3 ] := 
+{
+	if x1 > 0 and x2 > 0 and x3 > 0 
+		return false
+	if y1 > 0 and y2 > 0 and y3 > 0 
+		return false
+
+	if sameSide[ x1,y1, x2,y2, x3,y3 ]
+		return true
+	if sameSide[ x2,y2, x1,y1, x3,y3 ]
+		return true
+	
+	return false
+}
+
+b[] := 
+{
+	angle[ 1, 1 ]
+	angle[ 1, 0 ]
+	angle[ 1, -1]
+	angle[ 0, -1 ]
+	angle[ -1, -1 ]
+	angle[ -1, 0 ]
+	angle[ -1, 1]
+	angle[ 0, 1 ]
+}
+//b[]
+
+// true
+println[ originInsideTriangle[-340,495, -153,-910, 835,-947] ]
+
+// false
+println[ originInsideTriangle[-175,41, -421,-714, 574,-645] ]
+
+}

@@ -1,0 +1,16 @@
+generate_primes[start, end] := 
+{
+	count = 0
+	p = start
+	do
+	{
+		p = nextPrime[p]
+		count = count + 1
+		println[p]
+	} while p < end
+	return count
+}
+
+start = now[]
+println[ "count: " + generate_primes[1, 10^7] ]
+println[ now[] - start ]

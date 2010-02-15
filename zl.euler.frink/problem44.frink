@@ -1,0 +1,92 @@
+// problem044
+
+
+// Pa + Pj = Pk
+// Pj + Pk = Pb 
+
+penta[n] := n * (3 * n - 1) / 2
+pentas[start, end] :=
+{
+	ps = []
+	for i = start to end
+	{
+		p = penta[i]
+		ps.push[p]
+	}
+	
+	return ps
+}
+
+is_penta[x, pentas] := 
+{
+	l = 0
+	r = length[pentas]-1
+	do
+	{
+		m = (l + r) div 2
+		p = pentas@m
+		if x == p
+			return true
+
+		if x < p
+			r = m
+		else
+			l = m
+
+		//println[ "$l .. $r"  ]
+	} while l + 1 < r
+	
+	return pentas@l == x or pentas@r == x
+}
+
+// Pa + Pj = Pk
+// Pj + Pk = Pb 
+
+problem044[limit] := 
+{
+	ps = pentas[1, limit]
+
+	len = length[ps] - 1
+	max_p = ps@len
+	println[ "len=$len max_p=$max_p" ]
+
+	start = now[]
+
+	for a = 0 to len-2
+	//for a = 1000 to len-2	//4000 //len-2
+	{
+		pa = ps@a
+		for j = a+1 to len-1
+		{
+			pj = ps@j
+			pk = pa + pj
+			pb = pj + pk
+			if (pb > max_p) or (pk > max_p)
+				break
+			if not is_penta[pk, ps]
+				next
+
+			//if is_penta[pb, ps]
+			//{
+				println[ "[ $a $pa $pj $pk $pb ]" ]
+				//return [pa, pj, pk, pb]
+			//}
+		}
+		if ( a mod 10 == 0 )
+		{
+			println[ "; done a=$a " + (now[] - start) ]
+			start = now[]
+		}
+	}
+}
+
+res = problem044[1000]
+println[ res ]
+
+hide[] :=
+{
+ps = pentas[1, 10000]
+println[ ps@9000 ]
+println[ ps@9001 ]
+println[ ps@9000 + ps@9001 ]
+}
