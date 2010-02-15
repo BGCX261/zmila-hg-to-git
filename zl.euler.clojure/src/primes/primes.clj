@@ -1,4 +1,7 @@
-(ns src.primes.primes)
+(ns src.primes.primes
+	;; TODO: Only expt from math is needed, but how do I use :only with multiple libs?
+  (:use [clojure.contrib math test-is])
+)
 
 (quote
 	"Everybody loves the Sieve of Eratosthenes" 
@@ -58,38 +61,30 @@
                 (lazy-seq (next-primes (next-sieve sieve candidate) (+ candidate 2))))))]
     (cons 2 (lazy-seq (next-primes {} 3)))))
 
+;(time (count (sieve 10000000)))	; 664579
+
 (defn sieve [n]
 	"Returns a list of all primes from 2 to n
 		http://paste.lisp.org/display/69952"
-  (let [n (int n) root (int (Math/round (Math/floor (Math/sqrt n))))]
-    (loop [i (int 3)
-           a (int-array n)
-           result (list 2)]
+  (let [n (int n), root (int (Math/round (Math/floor (Math/sqrt n))))]
+    (loop [i (int 3),		a (int-array n),	result (list 2)]
       (if (>= i n)
         (reverse result)
-        (recur (+ i (int 2))
-               (if (< i root)
-                 (loop [arr a
-                        inc (+ i i)
-                        j (* i i)]
-                   (if (>= j n)
-                     arr
+        (recur (+ i (int 2)), 
+        		   (if (< i root)
+                 (loop [arr a, step (+ i i), j (* i i)]
+                   (if (< j n)
                      (recur (do (aset arr j (int 1)) arr)
-                            inc
-                            (+ j inc))))
+                            step
+                            (+ j step))
+                     arr))
                  a)
                (if (zero? (aget a i))
                  (conj result i)
                  result)))))
 )
-;(time (count (sieve 10000000)))	; 664579
-
-
 ; http://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test
 
-(ns de.tsdh.clojure.math.primes
-  ;; TODO: Only expt from math is needed, but how do I use :only with multiple libs?
-  (:use [clojure.contrib math test-is]))
 
 (def
  #^{:doc "The chances that prime? returns true for a composite 
@@ -109,7 +104,7 @@
 
 (defn expt-mod
   "Equivalent to (mod (expt n e) m), but faster.
-http://en.wikipedia.org/wiki/Modular_exponentiation#An_efficient_method:_the_right-to-left_binary_algorithm";
+		http://en.wikipedia.org/wiki/Modular_exponentiation#An_efficient_method:_the_right-to-left_binary_algorithm";
   [n e m]
   (loop [r 1, b n, e e]
     (if (= e 0)
@@ -121,36 +116,37 @@ http://en.wikipedia.org/wiki/Modular_exponentiation#An_efficient_method:_the_rig
              (bit-shift-right e 1)))))
 
 (defn prime?
-  "Checks if n is a prime using the Miller-Rabin pseudo-primality test.  Also
-see *pseudo* and *pseudo-accuracy*."
+  "Checks if n is a prime using the Miller-Rabin pseudo-primality test.  
+  	Also see *pseudo* and *pseudo-accuracy*."
   [n]
   (cond
     (< n 2)   false
     (= n 2)   true
     (even? n) false
-    :else (let [m (factorize-out (dec n) 2)
-                d (:rest m)
-                s (:exponent m)]
-            (loop [k 1]
-              (if (> k *pseudo-accuracy*)
-                true
-                (let [a (+ 2 (rand-int (- n 4)))
-                      x (expt-mod a d n)]
-                  (if (or (= x 1) (= x (dec n)))
-                    (recur (inc k))
-                    (if (loop [r 1
-                               x (expt-mod x 2 n)]
-                          (cond
-                           (or (= x 1) (>  r (dec s)))  false
-                           (= x (dec n))                true
-                           :else (recur (inc r) (mod (* x x) n))))
-                      (recur (inc k))
-                      false))))))))
+    :else 
+    	(let [m (factorize-out (dec n) 2)
+            d (:rest m)
+            s (:exponent m)]
+        (loop [k 1]
+          (if (> k *pseudo-accuracy*)
+            true
+            (let [a (+ 2 (rand-int (- n 4)))
+                  x (expt-mod a d n)]
+              (if (or (= x 1) (= x (dec n)))
+                (recur (inc k))
+                (if (loop [r 1
+                           x (expt-mod x 2 n)]
+                      (cond
+                       (or (= x 1) (>  r (dec s)))  false
+                       (= x (dec n))                true
+                       :else (recur (inc r) (mod (* x x) n))))
+                  (recur (inc k))
+                  false))))))))
 
 (defn next-prime [n]
   "Returns the next prime greater than n."
   (cond
-    (< n 2)    2
+    (< n 2)  2
     :else (loop [n (inc n)]
             (if (prime? n)
               n
@@ -171,5 +167,4 @@ see *pseudo* and *pseudo-accuracy*."
     (when (and (empty? a) (empty? b))
       (is (= (first a) (first b)))
       (recur  (rest a) (rest b)))))
-
 
