@@ -1,0 +1,57 @@
+start = now[]
+
+primes_till_sqrt[limit] := 
+{
+	primes = []
+	p = 1
+	root = sqrt[limit]
+	for i = 1 to root
+	{
+		p = nextPrime[p]
+		if p <= root
+			primes.push[p]
+		else
+			break;
+	}
+
+	return primes
+}
+
+limit = 100000000
+
+primes = primes_till_sqrt[limit]
+count = length[primes]
+left_triangle = count * (count+1) / 2
+println [ "$count $left_triangle" ]
+
+right_triangle[primes, limit] :=
+{
+	count = length[primes]
+	rowI = count-1
+	rowP = primes@rowI
+	colP = nextPrime[rowP]
+	curr_count = 0
+	total_count = 0
+	while rowI >= 0
+	{
+		rowP = primes@rowI
+		if ( rowP * colP < limit )
+		{
+			colP = nextPrime[colP]
+			curr_count = curr_count + 1
+		} else 
+		{
+			println[ "$rowI: $rowP $colP $curr_count" ]
+			rowI = rowI - 1
+			total_count = total_count + curr_count
+		}
+	}
+	return total_count
+}
+problem187 =  left_triangle + right_triangle[primes, limit]
+
+println[ problem187 ]
+println[ now[] - start ]
+
+//100000000: 17427258
+// 41.762 s

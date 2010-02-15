@@ -1,23 +1,13 @@
 /*
-now: 83 out of 277	(17 more until next level)
+now: 84 out of 278	(16 more until next level)
 level: 2
 
-276
+254
 http://projecteuler.net/index.php?section=scores&level=2&page=3
 
-7th in Clojure   // next 83 102
 17th in Belarus   // next 100 - 109
+6th in Clojure   // next 94 102 
 9th in ECMAScript // next 86
-*/
-
-
-/*
-Problem 187
-A composite is a number containing at least two prime factors. 
-For example, 15 = 3 ? 5; 9 = 3 ? 3; 12 = 2 ? 2 ? 3.
-There are ten composites below thirty containing precisely two, not necessarily distinct, 
-prime factors: 4, 6, 9, 10, 14, 15, 21, 22, 25, 26.
-How many composite integers, n < 10^(8), have precisely two, not necessarily distinct, prime factors?
 */
 
 
@@ -140,10 +130,6 @@ console.log( "max", primes[maxP] );
 
 
 /*
-145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
-Find the sum of all numbers which are equal to the sum of the factorial of their digits.
-Note: as 1! = 1 and 2! = 2 are not sums they are not included.
-
 factorials:
 0=0 1=1 2=2 3=6 4=24 5=120 6=720 7=5040 8=40320 9=362880
 */
