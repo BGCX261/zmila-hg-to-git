@@ -28,14 +28,14 @@ the first nine digits AND the last nine digits are 1-9 pandigital, find k.
 (defn pandigital? 
 	([n] (pandigital? n 0 #{}))
 	([n size digits] 
-		;(println "pandigital" n size digits)
-		(if (= n 0) 
+		(if (zero? n) 
 			(= size (count digits))
 			(let [digit (rem n 10) n1 (quot n 10)]
 				(if (or (zero? digit) (digits digit)) 
 					false
 					(recur n1 (inc size) (conj digits digit))))))
 )
+
 
 (defn pandigital19? 
 	([n] (and (>= n 123456789) (<= n 987654321) (pandigital19? n #{}) ))
