@@ -1,8 +1,8 @@
 /*
-now: 85 out of 278	(15 more until next level)
+now: 87 out of 278	(13 more until next level)
 level: 2
 
-241
+204
 http://projecteuler.net/index.php?section=scores&level=2&page=3
 
 17th in Belarus   // next 100 - 109
@@ -10,29 +10,6 @@ http://projecteuler.net/index.php?section=scores&level=2&page=3
 9th in ECMAScript // next 86
 */
 
-
-/*
-----------------------
-Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:
-    1634 = 1^(4) + 6^(4) + 3^(4) + 4^(4)
-    8208 = 8^(4) + 2^(4) + 0^(4) + 8^(4)
-    9474 = 9^(4) + 4^(4) + 7^(4) + 4^(4)
-As 1 = 1^(4) is not a sum it is not included.
-The sum of these numbers is 1634 + 8208 + 9474 = 19316.
-Find the sum of all the numbers that can be written as the sum of fifth powers of their digits
-
-fifth:
-0=0 1=1 2=32 3=243 4=1024 5=3125 6=7776 7=16807 8=32768 9=59049
-
-----------------------
-145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
-Find the sum of all numbers which are equal to the sum of the factorial of their digits.
-Note: as 1! = 1 and 2! = 2 are not sums they are not included.
-
-factorials:
-0=0 1=1 2=2 3=6 4=24 5=120 6=720 7=5040 8=40320 9=362880
-----------------------
-*/
 
 function problem75_not_done()
 {
