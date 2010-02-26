@@ -1,13 +1,12 @@
 /*
-now: 90 out of 279	(10 more until next level)
+now: 91 out of 280	(9 more until next level)
 level: 2
 
-145
+121
 http://projecteuler.net/index.php?section=scores&level=2&page=2
 
 17th in Belarus   // next 100 - 109
 6th in Clojure   // next 94 102 
-9th in ECMAScript // next 86
 */
 
 
@@ -57,89 +56,6 @@ for ( var p in ps )
 }
 
 console.log( "count", count );
-}
-
-
-
-/*
-We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once. For example, 2143 is a 4-digit pandigital and is also prime.
-What is the largest n-digit pandigital prime that exists?
-*/
-function problemXX_not_done(input)
-{
-var primes = Sieve_of_Eratosthenes(10000);
-
-function isPandigital(n)
-{
-    var s = "" + n;
-    var len = s.length;
-    var count = 0;
-    var digits = {};
-    for ( var i = 0; i < len; i++ )
-    {
-        var c = s.charAt(i);
-        if ( c == '0' ) return false;
-        if ( digits[c] ) return false;
-        digits[c] = true;
-        count++;
-    }
-    return count == len;
-}
-
-
-console.log( "primes done" );
-
-var maxP = 0;
-for ( var i = primes.length-1; i >= 0; i-- )
-{
-    if ( isPandigital(primes[i]) )
-    {
-        maxP = i;
-        break;
-        //console.log( maxP );
-    }
-}
-
-console.log( "max", primes[maxP] );
-
-  return primes[maxP];
-}
-
-
-/*
-factorials:
-0=0 1=1 2=2 3=6 4=24 5=120 6=720 7=5040 8=40320 9=362880
-*/
-function problem34_not_done()
-{
-
-  function fact(n)
-  {
-      var res = 1;
-      for ( var i = 1; i <= n; i++ )
-          res *= i;
-      return res;
-  }
-
-  var factorials = {0:0};
-  for ( var i = 1; i < 10; i++ )
-  {
-      factorials[i] = fact( i )
-  }
-
-  function isCurious(n)
-  {
-      var s = 0, sn = "" + n;
-
-      for ( var i = 0; i < sn.length; i++ )
-      {
-          var d = +sn.charAt(i);
-          if ( d != null )
-              s += factorials[d];
-      }
-      return s;
-  }
-
 }
 
 
