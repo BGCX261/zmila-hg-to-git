@@ -1,8 +1,8 @@
 /*
-now: 91 out of 280	(9 more until next level)
+now: 93 out of 280	(9 more until next level)
 level: 2
 
-121
+100
 http://projecteuler.net/index.php?section=scores&level=2&page=2
 
 17th in Belarus   // next 100 - 109
